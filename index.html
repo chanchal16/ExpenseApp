@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense</title>
+    <link href="/style.css" rel="stylesheet" />
+    <link
+		rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous"
+	/>
+    <script
+		defer
+		src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+		integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+		crossorigin="anonymous"
+		></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">Xpers</span>
+          <span class="navbar-brand mb-0 h1" id="output"></span>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-light" style="min-height: 100vh;">
+        <div class="container">
+            <div class="jumbotron mt-4">
+                <div class="input-group mb-3">
+                    <input type="text" id="inputAmount" class="form-control" placeholder="amount spent"
+                    aria-label="amount spent" aria-describedby="spent in rupee" />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="rupee">₹</span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" id="inputdesc" class="form-control" placeholder="spent on"
+                    aria-label="spent on" aria-describedby="spent at" />
+                    <div class="input-group-append">
+                        <button id="btnAddExpense" class="btn btn-outline-primary" type="button">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div >
+                <ul class="list-group" id="table">
+                    
+                </ul>
+            </div>
+            <button id="reset" class="btn btn-secondary" type="button">Reset</button>
+        </div>
+    </div>
+
+    
+    <!--<input id="inputAmount" type="text" />
+    <input id="inputdesc" type="text" />
+    <button id="btnAddExpense">+</button>-->
+    <!-- <div id="table"></div> -->
+    
+    <!-- <button id="btncounter">+</button> -->
+    
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyB7jZLoNIeBXJTipwE-7osiNOTvK4U4W6Y",
+            authDomain: "xpers-663ab.firebaseapp.com",
+            projectId: "xpers-663ab",
+            storageBucket: "xpers-663ab.appspot.com",
+            messagingSenderId: "959200672391",
+            appId: "1:959200672391:web:27b4253960d89902591622"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="/app.js" type="text/javascript"></script>
+    
+</body>
+</html>
