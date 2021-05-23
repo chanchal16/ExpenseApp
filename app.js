@@ -104,28 +104,48 @@
      function createListItem(doc){
         const listItem = document.createTextNode(doc.data().desc);
         const listAmount = document.createTextNode(doc.data().amount);
-        const span = document.createElement("i");
+        const descDiv = document.createElement('div');
+        const elmDiv = document.createElement('div');
         const deleteBtn = document.createElement("button");
-        // deleteBtn.classList.add("fas");
-        // deleteBtn.classList.add("fa-trash-alt");
+        const del = document.createTextNode('Delete');
+        const span = document.createElement("i");
+        const h5 = document.createElement('h5');
+
+        //desc div
+        descDiv.classList.add('d-flex');
+        descDiv.classList.add('flex-column');
+        
+        
+        deleteBtn.classList.add('btn');
+        deleteBtn.classList.add('btn-danger');
+        deleteBtn.classList.add('btn-sm');
         deleteBtn.classList.add("deleteBtn");
         deleteBtn.addEventListener("click", () =>
             deleteItem(doc.id, doc.data().amount)
 
         );
 
-        span.classList.add("list-amount");
-
+        span.classList.add("px-5");
+        deleteBtn.appendChild(del);
         // rendering the respective elements
+        //desc div
+        h5.appendChild(listItem);
+        descDiv.appendChild(h5);
+        
         span.appendChild(listAmount);
-        span.appendChild(deleteBtn);
+        // span.appendChild(deleteBtn);
+
+        //btn nd amount div
+        elmDiv.appendChild(span);
+        elmDiv.appendChild(deleteBtn);
+
       
         const list = document.createElement('li');
         list.classList.add("list-group-item");
         list.classList.add('d-flex');
         list.classList.add('justify-content-between');
-        list.appendChild(listItem);
-        list.appendChild(span);
+        list.appendChild(descDiv);
+        list.appendChild(elmDiv);
         tableref.appendChild(list);
 
     }
